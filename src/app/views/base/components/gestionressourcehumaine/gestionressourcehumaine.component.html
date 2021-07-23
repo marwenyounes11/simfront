@@ -1,0 +1,85 @@
+<div class="container-fluide">
+<div class="row">
+  <div id="id1" class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ">
+    <div class="card ">
+      <div class="card-header">
+        <i class="fa fa-edit"></i>{{pageTitle}}
+        <div class="card-header-actions">
+          <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse1()"><i class={{iconCollapse}}></i></button>
+          <button type="button" class="card-header-action btn btn-link btn-close"(click)="close1()"><i class="icon-close"></i></button>
+        </div>
+      </div>
+      <div (collapsed)="collapsed($event)"
+        (expanded)="expanded($event)"
+        [collapse]="isCollapsed1"
+        class="card-body">
+        <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Nom</label>
+            <input  type="text" placeholder="taper le nom" formControlName="nom" id="nom"  [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+            <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                <div *ngIf="f.nom.errors.required"> nom obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Prenom</label>
+            <input  type="text" placeholder="taper le prenom" formControlName="prenom" id="prenom" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }" />
+            <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                <div *ngIf="f.prenom.errors.required"> Prenom obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Division</label>
+            <input  type="text" placeholder="taper le division" formControlName="division" id="division"  [ngClass]="{ 'is-invalid': submitted && f.division.errors }" />
+            <div *ngIf="submitted && f.division.errors" class="invalid-feedback">
+                <div *ngIf="f.division.errors.required"> Division est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Service</label>
+            <input  type="text" placeholder="taper le service" formControlName="service" id="service"  [ngClass]="{ 'is-invalid': submitted && f.service.errors }" />
+            <div *ngIf="submitted && f.service.errors" class="invalid-feedback">
+                <div *ngIf="f.service.errors.required"> service est obligatoire</div>
+            </div>
+          </div>
+             <div class="form-group">
+            <label>Matricule</label>
+            <input  type="text" placeholder="taper le matricule" class="form-control" formControlName="matricule" id="matricule" [ngClass]="{ 'is-invalid': submitted && f.matricule.errors }" />
+            <div *ngIf="submitted && f.matricule.errors" class="invalid-feedback">
+                <div *ngIf="f.matricule.errors.required"> Matricule obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ref</label>
+            <input  type="text" placeholder="taper le ref" class="form-control" formControlName="ref" id="ref" [ngClass]="{ 'is-invalid': submitted && f.ref.errors }" />
+            <div *ngIf="submitted && f.ref.errors" class="invalid-feedback">
+                <div *ngIf="f.ref.errors.required"> Ref obligatoire</div>
+            </div>
+          </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-dark"> Submit</button>
+            <button type="reset" class="btn btn-dark" (click)="ResetForm()">Annuler</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div id="id2" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+    <div class="card ">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Liste Ressource Humaines
+        <div class="card-header-actions">
+          <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse2()"><i class={{iconCollapse}}></i></button>
+          <button type="button" class="card-header-action btn btn-link btn-close"(click)="close2()"><i class="icon-close"></i></button>
+        </div>
+      </div>
+      <div (collapsed)="collapsed($event)"
+      (expanded)="expanded($event)"
+      [collapse]="isCollapsed2"
+      class="card-body">
+      <app-ressourcehumaine [ressourcehumaines]="ressourcehumaines" ></app-ressourcehumaine>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>

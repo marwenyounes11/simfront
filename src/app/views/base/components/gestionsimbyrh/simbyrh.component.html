@@ -1,0 +1,73 @@
+<div id="id2" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+  <div class="card ">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Gestion Sim par Ressource Humaines
+      <div class="card-header-actions">
+        <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse2()"><i class={{iconCollapse}}></i></button>
+        <button type="button" class="card-header-action btn btn-link btn-close"(click)="close2()"><i class="icon-close"></i></button>
+      </div>
+    </div>
+    <div 
+    class="card-body">
+ <div class="pricing-header mx-auto ">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg t">
+    <thead>
+    <tr>
+    <th scope="col">Aff</th>
+    <th scope="col">Numero </th>
+    <th scope="col">Numero Appel</th>
+    <th scope="col">Numero Appel Abregé</th>
+    <th scope="col">modele Appareil Gsm</th>
+    <th scope="col">IMEI1 </th>
+    <th scope="col">IMEI2</th>
+    <th scope="col">numero Serie Batterie</th>
+    <th scope="col">Date Mise En Service</th>
+    <th scope="col">Date Expiration</th>
+    <th scope="col">Division</th>
+    <th scope="col">Service </th>
+    <th scope="col">Nom et Prénom d'utilisateur </th>
+    <th scope="col">Matricule d'utilisateur</th>
+    <th scope="col">La ligne Gsm sera exploitée Du 2021 a 2024 (OUI/NON) </th>
+    <th scope="col">Ref</th>
+    <th scope="col">Remarque</th>
+    <th colspan="2">
+      Action
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of sims ;let i=index">	
+    <td>{{item.aff}}</td>
+    <td>{{item.id}}</td>
+    <td>{{item.numAppel}}</td>
+    <td>{{item.numAppelAbreg}}</td>
+    <td>{{item.modelAppareilGsm}}</td>
+    <td>{{item.imei1}}</td>
+    <td>{{item.imei2}}</td>
+    <td>{{item.numSerieBatterie}}</td>
+    <td>{{item.dateMiseEnService}}</td>
+    <td>{{item.dateExpiration}}</td>
+    <td>{{item.ressourceHumaine.division}}</td>
+    <td>{{item.ressourceHumaine.service}}</td>
+    <td>{{item.ressourceHumaine.nom}}   {{item.ressourceHumaine.prenom}}</td>
+    <td>{{item.ressourceHumaine.matricule}}</td>
+    <td>{{exploite[i]}}</td>
+    <td>{{item.ressourceHumaine.ref}}</td>
+    <td>{{item.remarque}}</td>
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item.id)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>
+      </div>
+    </div>
+    </div>
+ 

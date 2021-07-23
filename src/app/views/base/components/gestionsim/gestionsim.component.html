@@ -1,0 +1,122 @@
+<div class="container-fluide">
+<div class="row">
+  <div id="id1" class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ">
+    <div class="card ">
+      <div class="card-header">
+        <i class="fa fa-edit"></i>{{pageTitle}}
+        <div class="card-header-actions">
+          <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse1()"><i class={{iconCollapse}}></i></button>
+          <button type="button" class="card-header-action btn btn-link btn-close"(click)="close1()"><i class="icon-close"></i></button>
+        </div>
+      </div>
+      <div (collapsed)="collapsed($event)"
+      (expanded)="expanded($event)"
+      [collapse]="isCollapsed1"
+      class="card-body">
+        <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label> Aff</label>
+            <input  type="text" placeholder="taper aff" formControlName="aff" id="aff"  [ngClass]="{ 'is-invalid': submitted && f.aff.errors }" />
+            <div *ngIf="submitted && f.aff.errors" class="invalid-feedback">
+                <div *ngIf="f.aff.errors.required"> Aff est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Numero Appel</label>
+            <input  type="text" placeholder="taper le nnumero d'Appel" formControlName="numAppel" id="numAppel"  [ngClass]="{ 'is-invalid': submitted && f.numAppel.errors }" />
+            <div *ngIf="submitted && f.numAppel.errors" class="invalid-feedback">
+                <div *ngIf="f.numAppel.errors.required"> numero Appel est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Numero Appel Abregé</label>
+            <input  type="text" placeholder="taper le nnumero d'Appel Abregé" formControlName="numAppelAbreg" id="numAppelAbreg"  [ngClass]="{ 'is-invalid': submitted && f.numAppelAbreg.errors }" />
+            <div *ngIf="submitted && f.numAppelAbreg.errors" class="invalid-feedback">
+                <div *ngIf="f.numAppelAbreg.errors.required"> numero Appel Abregé est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> modele Appareil Gsm</label>
+            <input  type="text" placeholder="taper le modele Appareil Gsm" formControlName="modelAppareilGsm" id="modelAppareilGsm"  [ngClass]="{ 'is-invalid': submitted && f.modelAppareilGsm.errors }" />
+            <div *ngIf="submitted && f.modelAppareilGsm.errors" class="invalid-feedback">
+                <div *ngIf="f.modelAppareilGsm.errors.required"> modele Appareil Gsm est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> IMEI1</label>
+            <input  type="text" placeholder="taper le imei1" formControlName="imei1" id="imei1"  [ngClass]="{ 'is-invalid': submitted && f.imei1.errors }" />
+            <div *ngIf="submitted && f.imei1.errors" class="invalid-feedback">
+                <div *ngIf="f.imei1.errors.required"> IMEI1 est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> IMEI2</label>
+            <input  type="text" placeholder="taper le imei2" formControlName="imei2" id="imei2"  [ngClass]="{ 'is-invalid': submitted && f.imei2.errors }" />
+            <div *ngIf="submitted && f.imei2.errors" class="invalid-feedback">
+                <div *ngIf="f.imei2.errors.required"> IMEI2 est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Numéro Serie du Batterie</label>
+            <input  type="text" placeholder="taper le Numéro Serie duBatterie" formControlName="numSerieBatterie" id="numSerieBatterie"  [ngClass]="{ 'is-invalid': submitted && f.numSerieBatterie.errors }" />
+            <div *ngIf="submitted && f.numSerieBatterie.errors" class="invalid-feedback">
+                <div *ngIf="f.numSerieBatterie.errors.required"> Numéro Serie Du Batterie est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Date Mise En Service </label>
+            <input type="date" class="form-control" formControlName="dateMiseEnService" id="dateMiseEnService"   [ngClass]="{ 'is-invalid': submitted && f.dateMiseEnService.errors }" />
+            <div *ngIf="submitted && f.dateMiseEnService.errors" class="invalid-feedback">
+                <div *ngIf="f.dateMiseEnService.errors.required"> date is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Date Expiration </label>
+            <input type="date" class="form-control" formControlName="dateExpiration" id="dateExpiration"   [ngClass]="{ 'is-invalid': submitted && f.dateExpiration.errors }" />
+            <div *ngIf="submitted && f.dateExpiration.errors" class="invalid-feedback">
+                <div *ngIf="f.dateExpiration.errors.required"> date is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Remarque</label>
+            <input  type="text" placeholder="taper le remarque" formControlName="remarque" id="remarque"  [ngClass]="{ 'is-invalid': submitted && f.remarque.errors }" />
+            <div *ngIf="submitted && f.remarque.errors" class="invalid-feedback">
+                <div *ngIf="f.remarque.errors.required"> Remarque est obligatoire</div>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label> ressource Humaine </label>
+            <select id="idressourceHumaine" formControlName="idressourceHumaine" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idressourceHumaine.errors }">
+              <option *ngFor="let r of  ressourceHumaines" [value]="r.id">{{r.nom}}</option>
+            </select>
+            <div *ngIf="submitted && f.idressourceHumaine.errors" class="invalid-feedback">
+              <div *ngIf="f.idressourceHumaine.errors.required">idressourceHumaine is required</div>
+          </div>
+        </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-dark"> Submit</button>
+            <button type="reset" class="btn btn-dark" (click)="ResetForm()">Annuler</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div id="id2" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+    <div class="card ">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Liste SIM
+        <div class="card-header-actions">
+          <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse2()"><i class={{iconCollapse}}></i></button>
+          <button type="button" class="card-header-action btn btn-link btn-close"(click)="close2()"><i class="icon-close"></i></button>
+        </div>
+      </div>
+      <div (collapsed)="collapsed($event)"
+      (expanded)="expanded($event)"
+      [collapse]="isCollapsed2"
+      class="card-body">
+      <app-sim [sims]="sims" ></app-sim>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>

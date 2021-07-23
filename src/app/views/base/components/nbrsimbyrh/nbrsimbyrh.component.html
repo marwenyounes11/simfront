@@ -1,0 +1,36 @@
+<div id="id2" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+  <div class="card ">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Nombre Sim par Ressource Humaines
+      <div class="card-header-actions">
+        <button type="button" class="card-header-action btn btn-link btn-minimize"(click)="toggleCollapse2()"><i class={{iconCollapse}}></i></button>
+        <button type="button" class="card-header-action btn btn-link btn-close"(click)="close2()"><i class="icon-close"></i></button>
+      </div>
+    </div>
+    <div 
+    class="card-body">
+ <div class="pricing-header mx-auto ">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg t">
+    <thead>
+    <tr>
+    <th scope="col">Nom et Prénom d'utilisateur </th>
+    <th scope="col">Matricule d'utilisateur</th>
+    <th scope="col">Numéro D'appel </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of ressourcehumaines ">	
+    <td>{{item.nom}}   {{item.prenom}}</td>
+    <td>{{item.matricule}}</td>
+    <td><div *ngFor="let sim of item.sims">{{sim.numAppel}}</div></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>
+      </div>
+    </div>
+    </div>
+    

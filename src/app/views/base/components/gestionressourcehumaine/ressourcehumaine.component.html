@@ -1,0 +1,37 @@
+
+ <div class="pricing-header mx-auto ">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg t">
+    <thead>
+    <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Division</th>
+    <th scope="col">Service </th>
+    <th scope="col">Matricule</th>
+    <th scope="col">Ref</th>
+    <th colspan="2">
+      Action
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of ressourcehumaines ">	
+    <td>{{item.nom}}</td>
+    <td>{{item.prenom}}</td>
+    <td>{{item.division}}</td>
+    <td>{{item.service}}</td>
+    <td>{{item.matricule}}</td>
+    <td>{{item.ref}}</td>
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item.id)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>
